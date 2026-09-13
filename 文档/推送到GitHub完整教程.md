@@ -71,6 +71,38 @@ git grep -n -I -E $patterns -- ':!package-lock.json'
 
 命令没有输出才继续。若发现真实密钥，立即从文件中删除并轮换密钥；仅删除工作区文字不足以清除已经提交到 Git 历史中的密钥。
 
+## 三、配置 Git 提交身份
+
+如果执行 `git commit` 时出现：
+
+```text
+Please tell me who you are
+fatal: unable to auto-detect email address
+```
+
+只在当前项目设置提交身份即可，不影响电脑上的其他仓库：
+
+```powershell
+Set-Location 'D:\codex-project\同频提问局'
+git config user.name 'dsad554'
+git config user.email 'dsad554@users.noreply.github.com'
+```
+
+检查是否设置成功：
+
+```powershell
+git config --local --get user.name
+git config --local --get user.email
+```
+
+然后重新提交：
+
+```powershell
+git add -A
+git commit -m '提交同频提问局项目'
+```
+
+> GitHub 的 `用户名@users.noreply.github.com` 是公开提交邮箱格式。也可以改成你 GitHub 账号设置中的 noreply 邮箱。
 ## 三、初始化本地 Git（已经初始化时跳过）
 
 如果项目还没有 `.git` 目录：
@@ -306,3 +338,4 @@ git restore --staged -- '文件路径'
 - 未取得公开授权的原始资料或用户个人数据
 
 公开仓库只代表代码可见，不代表知乎 API、OAuth、实时聊天、邮件提醒或云数据库已经自动可用。这些服务仍需单独配置，并应通过部署平台的环境变量或项目外凭据管理提供。
+
