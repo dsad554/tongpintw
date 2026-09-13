@@ -1,0 +1,10 @@
+交付包/
+.sites-runtime/
+node_modules/
+.env
+.env.*
+*.key
+*.pem
+*.dpapi
+*.pfx
+*.log

@@ -1,0 +1,1 @@
+window.TONGPIN_AI_REPLY_ENDPOINT = '';

@@ -1,0 +1,30 @@
+.nav-btn{white-space:nowrap;flex-shrink:0;min-height:44px}
+.friend-groups{display:grid;gap:12px}
+.friend-group{border:1px solid var(--line);border-radius:12px;background:var(--card);overflow:hidden}
+.friend-group summary{display:flex;align-items:center;gap:12px;min-height:60px;padding:14px 18px;cursor:pointer;list-style:none;font-weight:650}
+.friend-group summary::-webkit-details-marker{display:none}
+.friend-group summary:before{content:'›';font-size:24px;line-height:1;transform:rotate(0deg);width:12px;color:var(--muted)}
+.friend-group[open] summary:before{transform:rotate(90deg)}
+.friend-group summary:focus-visible{outline:2px solid var(--blue);outline-offset:-3px}
+.friend-group-name{overflow-wrap:anywhere;min-width:0}
+.friend-group-count{margin-left:auto;color:var(--muted);font-size:13px;font-weight:400}
+.friend-group-list{padding:0 18px}
+.friend-row{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0;border-top:1px solid var(--line);min-width:0}
+.friend-person{min-width:0;overflow-wrap:anywhere}
+.friend-person strong{font-size:15px;font-weight:600}
+.friend-person small{display:block;color:var(--muted);font-size:12px;margin-top:3px}
+.friend-row .text-button{min-width:44px;min-height:44px;flex-shrink:0}
+.friend-row-actions{display:flex;gap:8px;flex-shrink:0}
+.friend-row .button{padding:8px 12px;font-size:13px;flex-shrink:0}
+.friend-empty{font-size:13px;color:var(--muted);margin:0;padding:8px 0 20px}
+.friend-state{font-size:12px;color:var(--muted);flex-shrink:0}
+.friend-requests{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin-bottom:18px}
+.friend-requests h2{font-size:16px;margin:0 0 8px}
+.friends-dialog{width:min(460px,calc(100vw - 28px));max-height:calc(100dvh - 28px);padding:20px;border:1px solid var(--line);border-radius:16px;color:var(--ink);background:var(--card);overflow-y:auto}
+.friends-dialog::backdrop{background:#17204466}
+.friends-dialog .dialog-head h2{font-size:20px;margin:0}
+.friends-dialog .dialog-head .text-button{min-width:44px;min-height:44px}
+.friends-dialog .muted{font-size:13px}
+@media(max-width:760px){.nav{gap:4px}.nav-btn{padding:8px}.friend-row{gap:10px}.friend-group summary{padding:14px}.friend-group-list{padding:0 14px}.friend-requests{padding:14px}.friend-row-actions{gap:6px}}
+@media(max-width:380px){.friend-requests .friend-row{align-items:flex-start;flex-wrap:wrap}.friend-row-actions{margin-left:auto}.friends-dialog{padding:14px}}
+@media(max-width:480px){.nav{flex-wrap:wrap;overflow:visible}.nav-btn{flex:0 0 auto}}

@@ -1,0 +1,30 @@
+(function(){'use strict';
+const KEY='tongpin-live-v1',SHELF='tongpin-shelf-v1';
+const uid=()=>globalThis.crypto?.randomUUID?.()||Date.now().toString(36)+Math.random().toString(36).slice(2);
+const esc=(s)=>String(s??'');
+const load=()=>{try{return JSON.parse(localStorage.getItem(KEY)||'null')}catch{return null}};
+let data=load()||{room:null,role:null,question:null,messages:[],ended:false};
+let activeRole=new URL(location.href).searchParams.get('role')==='b'?'b':(data.role||'a');
+let shelf=(()=>{try{return JSON.parse(localStorage.getItem(SHELF)||'[]')}catch{return []}})();
+let poll=null; const $=id=>document.getElementById(id);
+function save(){try{localStorage.setItem(KEY,JSON.stringify(data))}catch{notice('无法保存本地房间，请保留导出的卡片')}}
+function notice(t){$('notice').textContent=t;$('notice').hidden=false;setTimeout(()=>$('notice').hidden=true,3200)}
+function view(v){document.querySelectorAll('.view').forEach(x=>x.classList.toggle('active',x.id==='view-'+v));document.querySelectorAll('.nav-btn').forEach(x=>x.classList.toggle('active',x.dataset.view===v));if(v==='shelf')renderShelf();}
+function renderBoard(){const list=$('board-list');list.replaceChildren();const q=data.question;if(q){const card=document.createElement('button');card.className='board-card';card.innerHTML='<div class="meta"><span>'+esc(q.category)+'</span><span>等待同选项的人</span></div><h3>'+esc(q.text)+'</h3><p>'+esc(q.name)+' · 想学习：'+esc(q.want||'未填写')+'</p>';card.onclick=()=>join(q);list.append(card)}else{[['学习','怎样把读后感变成值得聊的问题？'],['表达','如何把一个模糊想法说清楚？'],['职场','第一次请教别人时，怎么问得具体？']].forEach(([c,t])=>{const card=document.createElement('button');card.className='board-card';card.innerHTML='<div class="meta"><span>'+c+'</span><span>示例问题</span></div><h3>'+t+'</h3><p>选择同一问题的人可以进入一对一交流。</p>';card.onclick=()=>{$('q-category').value=c;$('q-text').value=t;$('q-name').value='示例参与者';$('open-create').click()};list.append(card)})}}
+function join(q){if(data.room&&data.room===q.room){view('chat');return}data.question=q;activeRole=new URL(location.href).searchParams.get('role')==='b'?'b':(data.role||'a');data.role=activeRole;data.room=q.room||uid();data.messages=data.messages||[];data.ended=false;save();$('room-title').textContent=q.text;$('room-meta').textContent=q.category+' · 房间 '+data.room.slice(0,8);enableChat();view('chat');startPoll();renderChat()}
+function enableChat(){ $('chat-input').disabled=false;$('chat-form').querySelector('button').disabled=false;$('end-chat').disabled=false }
+function renderChat(){const box=$('chat-messages');box.replaceChildren();(data.messages||[]).forEach(m=>{const d=document.createElement('div');d.className='message '+(m.role===activeRole?'mine':m.role==='ai'?'ai':'');d.innerHTML='<span class="label">'+(m.role==='ai'?'AI 回复（知乎相近回答）':m.role===activeRole?'我':'对方')+'</span>'+esc(m.text);box.append(d)});box.scrollTop=box.scrollHeight}
+function sync(){const n=load();if(n&&JSON.stringify(n.messages)!==JSON.stringify(data.messages)){data=n;renderChat();}if(data.ended)stopPoll()}
+function startPoll(){stopPoll();poll=setInterval(sync,800)}function stopPoll(){if(poll){clearInterval(poll);poll=null}}
+function maybeAI(text){return false}
+$('open-create').onclick=()=>{$('create-dialog').showModal()};
+$('create-form').onsubmit=e=>{e.preventDefault();const q={room:uid(),category:$('q-category').value,text:$('q-text').value.trim(),name:$('q-name').value.trim(),want:$('q-want').value.trim()};if(!q.text||!q.name)return;data={room:q.room,role:'a',question:q,messages:[],ended:false};save();$('create-dialog').close();join(q);notice('问题已发布，正在等待同选项的人加入。')};
+$('chat-form').onsubmit=e=>{e.preventDefault();const t=$('chat-input').value.trim();if(!t||!data.room||data.ended)return;data.messages.push({id:uid(),role:activeRole,text:t,at:Date.now()});$('chat-input').value='';save();renderChat();maybeAI(t)};
+$('end-chat').onclick=()=>{if(!data.messages.length){notice('先交流几句，再结束本次对话');return}buildFinish()};
+function buildFinish(){const box=$('key-lines');box.replaceChildren();data.messages.filter(m=>m.role!=='ai').forEach((m,i)=>{const label=document.createElement('label');label.className='key-line';label.innerHTML='<input type="checkbox" value="'+i+'">'+esc(m.role===activeRole?'我：':'对方：')+esc(m.text);box.append(label)});$('finish-dialog').showModal()}
+$('finish-form').onsubmit=e=>{e.preventDefault();const checks=[...document.querySelectorAll('#key-lines input:checked')];if(!checks.length){notice('至少选择一句关键句');return}const kept=checks.map(x=>data.messages[Number(x.value)].text);const summary=$('my-summary').value.trim();if(!summary){notice('请写一句你的总结');return}const card={id:uid(),category:$('card-category').value,question:data.question.text,keywords:kept,summary,createdAt:new Date().toISOString(),shared:false};shelf.unshift(card);localStorage.setItem(SHELF,JSON.stringify(shelf));data.ended=true;save();$('finish-dialog').close();$('chat-input').disabled=true;$('chat-form').querySelector('button').disabled=true;$('end-chat').disabled=true;renderShelf();view('shelf');notice('已结束交流，成果卡已保存到书架。')};
+function renderShelf(){const list=$('shelf-list'),f=$('shelf-filter').value;list.replaceChildren();const items=shelf.filter(c=>f==='all'||c.category===f);if(!items.length){list.innerHTML='<p class="muted">还没有保存的已解决问题卡。</p>';return}items.forEach(c=>{const d=document.createElement('article');d.className='shelf-card';d.innerHTML='<span class="tag">'+esc(c.category)+'</span><h3>'+esc(c.question)+'</h3><p><b>关键句：</b>'+esc(c.keywords.join('；'))+'</p><p><b>我的总结：</b>'+esc(c.summary)+'</p><div class="card-actions"><button class="text-button" data-share="'+c.id+'">分享卡片</button></div>';list.append(d)});list.querySelectorAll('[data-share]').forEach(b=>b.onclick=()=>{const c=shelf.find(x=>x.id===b.dataset.share);const txt='同频提问局｜'+c.category+'\n问题：'+c.question+'\n关键句：'+c.keywords.join('；')+'\n总结：'+c.summary;navigator.clipboard?.writeText(txt);notice('卡片内容已复制，可粘贴到社区或社群。')})}
+$('shelf-filter').onchange=renderShelf;document.querySelectorAll('.nav-btn').forEach(b=>b.onclick=()=>view(b.dataset.view));
+renderBoard();if(data.room&&data.question){join(data.question)}else view('board');renderShelf();
+})();
+

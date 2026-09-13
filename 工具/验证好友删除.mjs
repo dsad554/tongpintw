@@ -1,0 +1,3 @@
+import { createFriendsApi } from './好友服务.mjs';
+const api={questions:[{id:'q',roomId:'r',creatorClientId:'ca',creatorProfileId:'pa',name:'甲',responderClientId:'cb',responderProfileId:'pb',responderName:'乙'}],topics:[],friends:[],friendRequests:[]}; const f=createFriendsApi(api,()=>{});
+let x=f.request({profileId:'pa',clientId:'ca',roomId:'r',targetProfileId:'pb'}); if(x.status!==201)throw Error('request'); const id=x.payload.request.id; if(f.respond({profileId:'pb',clientId:'cb',requestId:id,accept:true}).status!==200)throw Error('accept'); if(api.friends.length!==2)throw Error('pair'); const d=f.remove({profileId:'pa',clientId:'ca'},api.friends[0].id); if(d.status!==200||api.friends.length)throw Error('remove'); console.log('通过：好友删除双向解除、角色关系保持');

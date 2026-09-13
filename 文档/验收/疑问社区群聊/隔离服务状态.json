@@ -1,0 +1,218 @@
+{
+  "questions": [
+    {
+      "id": "b6528894-d3ce-4fc4-80e8-f64faf71738e",
+      "roomId": "b30037c2-a016-4309-be54-05fb2ab01acd",
+      "category": "学习",
+      "text": "第二间房：学习计划如何拆分？",
+      "name": "提问者小林",
+      "want": "",
+      "creatorClientId": "3fa5053e-ab36-4c04-9556-28aa1de70ca1",
+      "creatorProfileId": "efb036fb-0713-4716-a5e4-996d0b6f4f5d",
+      "createdAt": 1789266874771,
+      "matched": false,
+      "participants": [
+        "3fa5053e-ab36-4c04-9556-28aa1de70ca1"
+      ],
+      "communityRoom": true,
+      "communityMembers": [
+        {
+          "id": "3fa5053e-ab36-4c04-9556-28aa1de70ca1",
+          "clientId": "3fa5053e-ab36-4c04-9556-28aa1de70ca1",
+          "profileId": "efb036fb-0713-4716-a5e4-996d0b6f4f5d",
+          "name": "提问者小林",
+          "role": "a",
+          "joinedAt": 1789266874872
+        }
+      ]
+    },
+    {
+      "id": "e713988a-18ce-4d66-8fe9-cbec485300fc",
+      "roomId": "d4ebff93-b820-4ba6-a2c1-de22b0b288ed",
+      "category": "求职",
+      "text": "群聊验收：如何安排第一次求职复盘？1789266869700",
+      "name": "提问者小林",
+      "want": "",
+      "creatorClientId": "3fa5053e-ab36-4c04-9556-28aa1de70ca1",
+      "creatorProfileId": "efb036fb-0713-4716-a5e4-996d0b6f4f5d",
+      "createdAt": 1789266869781,
+      "matched": true,
+      "participants": [
+        "3fa5053e-ab36-4c04-9556-28aa1de70ca1",
+        "d92b8008-52bb-4278-a8e4-a22fa336722e"
+      ],
+      "responderJoined": true,
+      "responderClientId": "d92b8008-52bb-4278-a8e4-a22fa336722e",
+      "responderProfileId": "3d7b515e-723f-446d-a646-71dd407bc156",
+      "responderName": "解决者小陈",
+      "responderWant": "一起梳理经验",
+      "communityRoom": true,
+      "communityMembers": [
+        {
+          "id": "3fa5053e-ab36-4c04-9556-28aa1de70ca1",
+          "clientId": "3fa5053e-ab36-4c04-9556-28aa1de70ca1",
+          "profileId": "efb036fb-0713-4716-a5e4-996d0b6f4f5d",
+          "name": "提问者小林",
+          "role": "a",
+          "joinedAt": 1789266870732
+        },
+        {
+          "id": "d92b8008-52bb-4278-a8e4-a22fa336722e",
+          "clientId": "d92b8008-52bb-4278-a8e4-a22fa336722e",
+          "profileId": "3d7b515e-723f-446d-a646-71dd407bc156",
+          "name": "解决者小陈",
+          "role": "b",
+          "joinedAt": 1789266870732
+        },
+        {
+          "id": "a09fafb6-3053-49e7-b795-1066311fe39f",
+          "clientId": "a09fafb6-3053-49e7-b795-1066311fe39f",
+          "role": "c",
+          "profileId": "032cd81e-91a0-4513-b609-f4daaf898d8d",
+          "name": "社区成员 1",
+          "joinedAt": 1789266872023
+        }
+      ]
+    }
+  ],
+  "messages": [
+    {
+      "id": "6d63b7a2-1816-4147-adda-e7d8eea96964",
+      "roomId": "d4ebff93-b820-4ba6-a2c1-de22b0b288ed",
+      "from": "system",
+      "text": "已进入匹配：可以开始交流。",
+      "at": 1789266869791
+    },
+    {
+      "id": "bbeca152-3b6e-4b48-9253-9b6928b2db2f",
+      "roomId": "d4ebff93-b820-4ba6-a2c1-de22b0b288ed",
+      "from": "system",
+      "text": "问题已进入疑问社区，其他人可加入房间。",
+      "at": 1789266870733
+    },
+    {
+      "id": "31faf0d6-d494-4e29-b8da-d84dffdcc965",
+      "roomId": "d4ebff93-b820-4ba6-a2c1-de22b0b288ed",
+      "from": "a",
+      "senderId": "3fa5053e-ab36-4c04-9556-28aa1de70ca1",
+      "clientId": "3fa5053e-ab36-4c04-9556-28aa1de70ca1",
+      "senderName": "提问者小林",
+      "text": "我先列出投递记录。",
+      "at": 1789266872081
+    },
+    {
+      "id": "ee15c697-9a97-437a-9d0a-3efbb97af18d",
+      "roomId": "d4ebff93-b820-4ba6-a2c1-de22b0b288ed",
+      "from": "b",
+      "senderId": "d92b8008-52bb-4278-a8e4-a22fa336722e",
+      "clientId": "d92b8008-52bb-4278-a8e4-a22fa336722e",
+      "senderName": "解决者小陈",
+      "text": "我建议按岗位要求复盘。",
+      "at": 1789266872121
+    },
+    {
+      "id": "65d3e2c6-c9e5-4a1e-bcd5-5cfbb200140a",
+      "roomId": "d4ebff93-b820-4ba6-a2c1-de22b0b288ed",
+      "from": "c",
+      "senderId": "a09fafb6-3053-49e7-b795-1066311fe39f",
+      "clientId": "a09fafb6-3053-49e7-b795-1066311fe39f",
+      "senderName": "社区成员 1",
+      "text": "社区补充：可以记录面试反馈。",
+      "at": 1789266872172
+    },
+    {
+      "id": "41a527be-9895-442d-a901-a31f1cf7e862",
+      "roomId": "d4ebff93-b820-4ba6-a2c1-de22b0b288ed",
+      "from": "c",
+      "senderId": "a09fafb6-3053-49e7-b795-1066311fe39f",
+      "clientId": "a09fafb6-3053-49e7-b795-1066311fe39f",
+      "senderName": "社区成员 1",
+      "text": "刷新后继续群聊",
+      "at": 1789266873392
+    },
+    {
+      "id": "e58306ae-9193-4306-8ea2-df1292f493c7",
+      "roomId": "b30037c2-a016-4309-be54-05fb2ab01acd",
+      "from": "system",
+      "text": "已进入匹配：可以开始交流。",
+      "at": 1789266874784
+    },
+    {
+      "id": "e7abb3a7-8c1e-4040-8547-6f410897c21a",
+      "roomId": "b30037c2-a016-4309-be54-05fb2ab01acd",
+      "from": "system",
+      "text": "问题已进入疑问社区，其他人可加入房间。",
+      "at": 1789266874872
+    },
+    {
+      "id": "64250689-51b7-473e-9b28-4bf483e84b37",
+      "roomId": "b30037c2-a016-4309-be54-05fb2ab01acd",
+      "from": "a",
+      "senderId": "3fa5053e-ab36-4c04-9556-28aa1de70ca1",
+      "clientId": "3fa5053e-ab36-4c04-9556-28aa1de70ca1",
+      "senderName": "提问者小林",
+      "text": "第二间房独立消息",
+      "at": 1789266874958
+    }
+  ],
+  "shelf": [],
+  "topics": [
+    {
+      "id": "98a5da93-4b87-4db3-b4b8-148ea2a0ccee",
+      "roomId": "d4ebff93-b820-4ba6-a2c1-de22b0b288ed",
+      "questionId": "e713988a-18ce-4d66-8fe9-cbec485300fc",
+      "category": "求职",
+      "text": "话题：群聊验收：如何安排第一次求职复盘？1789266869700",
+      "from": "d92b8008-52bb-4278-a8e4-a22fa336722e",
+      "createdAt": 1789266870732,
+      "participants": [
+        {
+          "id": "3fa5053e-ab36-4c04-9556-28aa1de70ca1",
+          "clientId": "3fa5053e-ab36-4c04-9556-28aa1de70ca1",
+          "profileId": "efb036fb-0713-4716-a5e4-996d0b6f4f5d",
+          "name": "提问者小林",
+          "role": "a",
+          "joinedAt": 1789266870732
+        },
+        {
+          "id": "d92b8008-52bb-4278-a8e4-a22fa336722e",
+          "clientId": "d92b8008-52bb-4278-a8e4-a22fa336722e",
+          "profileId": "3d7b515e-723f-446d-a646-71dd407bc156",
+          "name": "解决者小陈",
+          "role": "b",
+          "joinedAt": 1789266870732
+        },
+        {
+          "id": "a09fafb6-3053-49e7-b795-1066311fe39f",
+          "clientId": "a09fafb6-3053-49e7-b795-1066311fe39f",
+          "role": "c",
+          "profileId": "032cd81e-91a0-4513-b609-f4daaf898d8d",
+          "name": "社区成员 1",
+          "joinedAt": 1789266872023
+        }
+      ]
+    },
+    {
+      "id": "e3e362e3-79ae-449c-8b4e-910f1ea933ab",
+      "roomId": "b30037c2-a016-4309-be54-05fb2ab01acd",
+      "questionId": "b6528894-d3ce-4fc4-80e8-f64faf71738e",
+      "category": "学习",
+      "text": "话题：第二间房：学习计划如何拆分？",
+      "from": "3fa5053e-ab36-4c04-9556-28aa1de70ca1",
+      "createdAt": 1789266874872,
+      "participants": [
+        {
+          "id": "3fa5053e-ab36-4c04-9556-28aa1de70ca1",
+          "clientId": "3fa5053e-ab36-4c04-9556-28aa1de70ca1",
+          "profileId": "efb036fb-0713-4716-a5e4-996d0b6f4f5d",
+          "name": "提问者小林",
+          "role": "a",
+          "joinedAt": 1789266874872
+        }
+      ]
+    }
+  ],
+  "achievements": [],
+  "friends": [],
+  "friendRequests": []
+}
