@@ -103,7 +103,7 @@ git commit -m '提交同频提问局项目'
 ```
 
 > GitHub 的 `用户名@users.noreply.github.com` 是公开提交邮箱格式。也可以改成你 GitHub 账号设置中的 noreply 邮箱。
-## 三、初始化本地 Git（已经初始化时跳过）
+## 四、初始化本地 Git（已经初始化时跳过）
 
 如果项目还没有 `.git` 目录：
 
@@ -116,7 +116,7 @@ git commit -m '初始化项目并添加忽略规则'
 
 如果项目已经有提交，不要重复 `git init`，直接进入下一步。
 
-## 四、创建 GitHub 公开仓库
+## 五、创建 GitHub 公开仓库
 
 ### 方法 A：在 GitHub 网页创建（推荐）
 
@@ -129,7 +129,7 @@ git commit -m '初始化项目并添加忽略规则'
 
 如果仓库已经存在，可跳过创建，直接使用它的 HTTPS 地址。
 
-## 五、绑定远程仓库
+## 六、绑定远程仓库
 
 在项目目录执行：
 
@@ -148,7 +148,7 @@ git remote -v
 
 输出中应同时看到 fetch 和 push 都指向 `tongpintw.git`。
 
-## 六、提交本地项目
+## 七、提交本地项目
 
 先查看将要加入的文件：
 
@@ -175,7 +175,7 @@ git add next-app
 
 若只上传原“同频提问局”静态项目，请保持它未跟踪，不要误加入本次提交。
 
-## 七、登录 GitHub 并推送
+## 八、登录 GitHub 并推送
 
 ### 方式 A：Git Credential Manager 设备登录
 
@@ -211,7 +211,7 @@ git push -u origin main
 branch 'main' set up to track 'origin/main'
 ```
 
-## 八、推送后验证
+## 九、推送后验证
 
 命令行验证：
 
@@ -229,7 +229,7 @@ git ls-remote --heads origin
 4. 点击 **Settings → General**，确认仓库可见性为 **Public**。
 5. 点击提交记录，确认最新提交说明和本地提交一致。
 
-## 九、常见问题
+## 十、常见问题
 
 ### 1. `src refspec main does not match any`
 
@@ -301,7 +301,7 @@ git push -u origin main
 
 GitHub 普通仓库不适合提交大型构建产物、视频或压缩包。删除不需要的文件；确实需要版本管理的大文件再评估 Git LFS。网页发布目录应保持可直接浏览，避免把整个 `node_modules` 或 `交付包` 上传。
 
-## 十、远程仓库内容与本地项目不一致
+## 十一、远程仓库内容与本地项目不一致
 
 如果 GitHub 仓库首页出现 `first-website/`、`test-site/`、`test.js` 等与本项目无关的文件，先不要继续执行 `git add`。这通常表示你曾在其他目录执行过推送。
 
@@ -347,7 +347,7 @@ git push --force-with-lease -u origin main
 如果本地分支尚未包含最新项目提交，先执行本教程“提交本地项目”一节，再运行上面的推送命令。不要使用不带 `--with-lease` 的 `--force`。
 
 推送后刷新 <https://github.com/dsad554/tongpintw>，应看到本项目目录结构。若仍不一致，执行 `git ls-tree --name-only origin/main` 检查远程分支，并确认你没有在其他目录操作。
-## 十一、日常更新流程
+## 十二、日常更新流程
 
 以后修改项目后，在项目目录执行：
 
@@ -366,7 +366,7 @@ git push
 git restore --staged -- '文件路径'
 ```
 
-## 十一、项目公开边界
+## 十三、项目公开边界
 
 可公开内容：
 
@@ -384,6 +384,7 @@ git restore --staged -- '文件路径'
 - 未取得公开授权的原始资料或用户个人数据
 
 公开仓库只代表代码可见，不代表知乎 API、OAuth、实时聊天、邮件提醒或云数据库已经自动可用。这些服务仍需单独配置，并应通过部署平台的环境变量或项目外凭据管理提供。
+
 
 
 
