@@ -8,3 +8,7 @@ node_modules/
 *.dpapi
 *.pfx
 *.log
+数据/本地状态.json
+memory/*.log
+memory/*.error.log
+memory/*.out
