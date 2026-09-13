@@ -12,3 +12,6 @@ node_modules/
 memory/*.log
 memory/*.error.log
 memory/*.out
+memory/
+备份/
+测试输出/
