@@ -301,7 +301,53 @@ git push -u origin main
 
 GitHub 普通仓库不适合提交大型构建产物、视频或压缩包。删除不需要的文件；确实需要版本管理的大文件再评估 Git LFS。网页发布目录应保持可直接浏览，避免把整个 `node_modules` 或 `交付包` 上传。
 
-## 十、日常更新流程
+## 十、远程仓库内容与本地项目不一致
+
+如果 GitHub 仓库首页出现 `first-website/`、`test-site/`、`test.js` 等与本项目无关的文件，先不要继续执行 `git add`。这通常表示你曾在其他目录执行过推送。
+
+先在本项目确认路径和远程：
+
+```powershell
+Set-Location 'D:\codex-project\同频提问局'
+(Get-Location).Path
+git remote -v
+git status -sb
+git ls-files | Select-Object -First 20
+```
+
+本项目应能看到 `dist/`、`产品说明计划书/`、`源码/`、`工具/` 等路径。确认无误后有两种处理方式：
+
+### 方式 A：保留远程历史并补充正确项目（安全）
+
+适合不确定远程文件是否需要保留的情况：
+
+```powershell
+git fetch origin
+git merge origin/main --allow-unrelated-histories
+```
+
+若 `.gitignore` 发生冲突，保留本项目的忽略规则，然后：
+
+```powershell
+git add -A
+git commit -m '合并远程历史并补充同频提问局项目'
+git push -u origin main
+```
+
+### 方式 B：用本地项目替换远程错误内容（需确认）
+
+这会让 GitHub `main` 最终只保留本项目内容，并删除远程页面上的错误文件；旧内容仍可在 Git 历史中查看。由于涉及对外仓库历史和文件删除，建议先在 GitHub 页面确认这些文件确实不需要，再执行：
+
+```powershell
+Set-Location 'D:\codex-project\同频提问局'
+git fetch origin
+git push --force-with-lease -u origin main
+```
+
+如果本地分支尚未包含最新项目提交，先执行本教程“提交本地项目”一节，再运行上面的推送命令。不要使用不带 `--with-lease` 的 `--force`。
+
+推送后刷新 <https://github.com/dsad554/tongpintw>，应看到本项目目录结构。若仍不一致，执行 `git ls-tree --name-only origin/main` 检查远程分支，并确认你没有在其他目录操作。
+## 十一、日常更新流程
 
 以后修改项目后，在项目目录执行：
 
@@ -338,4 +384,5 @@ git restore --staged -- '文件路径'
 - 未取得公开授权的原始资料或用户个人数据
 
 公开仓库只代表代码可见，不代表知乎 API、OAuth、实时聊天、邮件提醒或云数据库已经自动可用。这些服务仍需单独配置，并应通过部署平台的环境变量或项目外凭据管理提供。
+
 
