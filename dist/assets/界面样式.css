@@ -97,3 +97,57 @@
 .brandmark{position:relative;overflow:hidden;isolation:isolate}.brandmark img{position:absolute;inset:0;opacity:0;animation:brandmark-cycle 18s steps(1,end) infinite}.brandmark img:first-child{position:relative;opacity:1}.brandmark img:nth-child(1){animation-delay:0s}.brandmark img:nth-child(2){animation-delay:-15s}.brandmark img:nth-child(3){animation-delay:-12s}.brandmark img:nth-child(4){animation-delay:-9s}.brandmark img:nth-child(5){animation-delay:-6s}.brandmark img:nth-child(6){animation-delay:-3s}@keyframes brandmark-cycle{0%,16.66%{opacity:1}16.67%,100%{opacity:0}}@media (prefers-reduced-motion:reduce){.brandmark img{animation:none;opacity:0}.brandmark img:first-child{opacity:1}}
 
 
+
+/* Soft UI 风格覆盖：只调整视觉，不改变现有布局和交互位置。 */
+:root{--ink:#374151;--muted:#667085;--blue:#5f6bc7;--line:#e6eaf2;--paper:#f7f8fc;--card:#fff;--radius:24px}
+body{background:#f7f8fc;color:var(--ink)}
+.topbar{border-bottom-color:#e7ebf3}
+.brand{color:#374151}
+.brandmark{border-radius:16px;background:rgba(95,107,199,.10);box-shadow:0 8px 20px rgba(95,107,199,.10)}
+.nav{gap:10px}
+.nav-btn{min-height:44px;padding:10px 14px;border-radius:16px;color:#667085;transition:all .2s ease-in-out}
+.nav-btn:hover{background:#f0f2f9;color:#5965b4;transform:translateY(-2px);box-shadow:0 10px 24px rgba(95,107,199,.12)}
+.nav-btn:active{transform:scale(.97);box-shadow:inset 0 2px 5px rgba(95,107,199,.12)}
+.nav-btn:focus-visible,.button:focus-visible,.text-button:focus-visible{outline:0;box-shadow:0 0 0 4px rgba(95,107,199,.20)}
+.nav-btn.active{background:#eef0ff;color:#5965b4;box-shadow:0 7px 18px rgba(95,107,199,.12)}
+.home-nav{text-decoration:none;display:inline-flex;align-items:center;justify-content:center}
+.button{border-radius:16px;padding:12px 24px;font-weight:600;transition:all .2s ease-in-out}
+.button:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(95,107,199,.24)}
+.button:active{transform:scale(.97);box-shadow:inset 0 2px 6px rgba(95,107,199,.18)}
+.primary{background:#5f6bc7;box-shadow:0 8px 20px rgba(95,107,199,.24)}
+.secondary{background:#fff;border-color:#e8ebf2;color:#374151;box-shadow:0 8px 20px rgba(148,163,184,.14)}
+.board-card,.shelf-card,.room-head,.chat-messages,.chat-form,.ai-note{border-color:#e7ebf3;border-radius:24px;box-shadow:0 12px 32px rgba(100,116,139,.12);transition:transform .3s ease-in-out,box-shadow .3s ease-in-out,border-color .2s ease-in-out}
+.board-card:hover,.shelf-card:hover{border-color:#d2d8ee;transform:translateY(-2px);box-shadow:0 18px 40px rgba(95,107,199,.16)}
+.board-card.selected{border:1px solid #7180d5;box-shadow:inset 0 0 0 1px #7180d5,0 0 0 4px rgba(95,107,199,.14),0 14px 34px rgba(95,107,199,.12)}
+textarea,input,select{padding:12px 16px;border:1px solid #e7ebf3;border-radius:16px;background:#f9fafc;color:#374151;transition:all .2s ease-in-out}
+textarea:focus,input:focus,select:focus{outline:0;background:#fff;border-color:#e2e6f5;box-shadow:0 0 0 4px rgba(95,107,199,.18)}
+.message{border-radius:16px;padding:12px 16px;color:#374151;box-shadow:0 6px 16px rgba(100,116,139,.08)}
+.message:not(.mine):not(.ai){background:#f4f5f8;color:#374151}.message.mine{background:#eef1ff;color:#374151}.message.ai{background:#f8f9fc;color:#374151;border-color:#edf0f5}
+.ai-note{background:#fffaf2;color:#6b5b32}
+.dialog-head{border-radius:18px}.dialog-actions{gap:10px}
+.topic-card{border-color:#e7ebf3;border-radius:24px;box-shadow:0 12px 32px rgba(100,116,139,.12);transition:transform .3s ease-in-out,box-shadow .3s ease-in-out}
+.topic-card:hover{transform:translateY(-2px);box-shadow:0 18px 40px rgba(95,107,199,.16)}
+.delete-icon{border-radius:14px;background:#f8f9fc;border-color:#e5e9f2;box-shadow:0 6px 14px rgba(148,163,184,.12);transition:all .2s ease-in-out}
+.board-card .delete-icon:hover{transform:translateY(-1px);box-shadow:0 10px 20px rgba(196,75,82,.14)}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important;transform:none!important}}
+
+/* Soft UI 跨页面覆盖：不改变卡片堆叠定位、好友分组结构或按钮顺序。 */
+.friend-group,.friend-requests,.friends-dialog{border-color:#e7ebf3;border-radius:24px;box-shadow:0 12px 32px rgba(100,116,139,.12)}
+.friend-group summary{border-radius:20px;transition:background .2s ease-in-out}
+.friend-group summary:hover{background:#f5f6fb}
+.friend-row{border-top-color:#edf0f5}
+.friend-row .button,.friends-dialog .button{border-radius:16px;box-shadow:0 8px 20px rgba(95,107,199,.18);transition:all .2s ease-in-out}
+.friend-row .button:hover,.friends-dialog .button:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(95,107,199,.24)}
+.tp-card-swap .tp-card-swap__card{border-color:#e7ebf3;border-radius:24px;background:#fff;box-shadow:0 12px 32px rgba(100,116,139,.14);transition:box-shadow .3s ease-in-out}
+.tp-card-swap .tp-card-swap__card[data-active=true]{border-color:#cbd3ef;box-shadow:0 16px 36px rgba(95,107,199,.16)}
+.tp-card-swap .tp-card-swap__tag{background:#eef0ff;color:#5965b4}
+.tp-card-swap button{border-color:#e7ebf3;border-radius:16px;box-shadow:0 7px 16px rgba(148,163,184,.12);transition:all .2s ease-in-out}
+.tp-card-swap button:not(:disabled):hover{transform:translateY(-2px);box-shadow:0 12px 24px rgba(95,107,199,.18)}
+@media(prefers-reduced-motion:reduce){.tp-card-swap button,.friend-row .button,.friends-dialog .button{transform:none!important}}
+
+/* 首页：参考 Soft UI 的居中欢迎布局，按钮顺序与导航入口保持不变。 */
+.home-view{padding-top:56px}.home-hero{max-width:760px;margin:0 auto;text-align:center;padding:34px 20px 28px}.home-kicker{display:inline-flex;align-items:center;padding:8px 16px;border-radius:999px;background:#eef0ff;color:#5965b4;box-shadow:0 8px 20px rgba(95,107,199,.12);letter-spacing:.04em}.home-hero h1{margin:24px 0 16px;font-size:clamp(38px,7vw,72px);line-height:1.12;letter-spacing:-.04em;color:#273044}.home-hero h1 span{color:#5f6bc7}.home-lead{max-width:620px;margin:0 auto;color:#667085;font-size:clamp(16px,2vw,20px);line-height:1.8}.home-actions{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-top:30px}.home-actions .button{min-width:168px}.home-pills{display:flex;justify-content:center;align-items:center;gap:12px;margin-top:28px;color:#7b8492;font-size:13px}.home-pills i{font-style:normal;color:#b6bdd0}.home-features{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;max-width:980px;margin:14px auto 0}.home-features article{display:flex;align-items:flex-start;gap:14px;text-align:left;padding:22px 20px;background:#fff;border-radius:24px;box-shadow:0 12px 32px rgba(100,116,139,.12);transition:transform .3s ease-in-out,box-shadow .3s ease-in-out}.home-features article:hover{transform:translateY(-3px);box-shadow:0 18px 40px rgba(95,107,199,.16)}.home-features h2{margin:0 0 5px;font-size:18px;color:#374151}.home-features p{margin:0;color:#667085;font-size:13px;line-height:1.7}.home-icon{display:grid;place-items:center;width:40px;height:40px;flex:0 0 40px;border-radius:50%;background:#eef0ff;color:#5965b4;font-size:20px;font-weight:700}.home-actions .button:focus-visible{outline:0;box-shadow:0 0 0 4px rgba(95,107,199,.22),0 12px 28px rgba(95,107,199,.20)}
+@media(max-width:760px){.home-view{padding-top:30px}.home-hero{padding:20px 4px}.home-hero h1{font-size:clamp(36px,12vw,52px)}.home-lead{font-size:16px}.home-actions{gap:10px}.home-actions .button{min-width:0;flex:1}.home-features{grid-template-columns:1fr;gap:14px;margin-top:8px}.home-features article{padding:18px 16px}}
+/* 登录账号与扩展导航：仅保证入口在窄屏可见，不改变首页内容。 */
+.zhihu-account{flex:0 0 auto;margin-left:0}.zhihu-login-button{border-radius:16px;box-shadow:0 7px 16px rgba(148,163,184,.14);transition:all .2s ease-in-out}.zhihu-login-button:hover{transform:translateY(-2px);box-shadow:0 12px 24px rgba(95,107,199,.18)}
+@media(max-width:900px){.topbar{align-items:flex-start}.zhihu-account{margin-left:auto}.nav{width:100%;order:3;flex-wrap:wrap;overflow:visible}}

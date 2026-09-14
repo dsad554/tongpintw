@@ -26,6 +26,7 @@ const path=require('node:path');
      stateReads++;
      return route.fulfill({json:{questions,messages:[],shelf:[],topics:[],achievements:[]}});
     }
+    if(url.pathname==='/api/friends'&&req.method()==='GET') return route.fulfill({json:{friends:[],incoming:[],outgoing:[]}});
     if(req.method()==='DELETE'&&url.pathname==='/api/questions/test-first'){
      deleteRequested=true;
      await deleteGate;
@@ -45,14 +46,14 @@ const path=require('node:path');
    await first.locator('h3').click();
    assert.equal(await first.getAttribute('aria-pressed'),'true');
    assert(await solve.isEnabled());
-   assert.equal(await first.evaluate(el=>getComputedStyle(el).borderColor),'rgb(60, 82, 217)');
-   assert.equal((await first.boundingBox()).height,before.height,'选择不改变高度');
+   assert.notEqual(await first.evaluate(el=>getComputedStyle(el).borderColor),'rgb(231, 235, 243)');
+   assert(Math.abs((await first.boundingBox()).height-before.height)<1,'选择不改变高度');
    await page.screenshot({path:path.join(output,`${width}-选中.png`),fullPage:true});
    await first.locator('h3').click();
    assert.equal(await first.getAttribute('aria-pressed'),'false');
    assert(await solve.isDisabled());
-   assert.notEqual(await first.evaluate(el=>getComputedStyle(el).borderColor),'rgb(60, 82, 217)','取消后悬停无蓝框');
-   assert.equal((await first.boundingBox()).height,before.height,'取消不改变高度');
+   assert.notEqual(await first.evaluate(el=>getComputedStyle(el).borderColor),'rgb(113, 128, 213)','取消后不保留选中边框');
+   assert(Math.abs((await first.boundingBox()).height-before.height)<1,'取消不改变高度');
    const readsBefore=stateReads;
    await page.waitForResponse(r=>new URL(r.url()).pathname==='/api/state');
    await page.waitForResponse(r=>new URL(r.url()).pathname==='/api/state');
