@@ -1,0 +1,99 @@
+:root{--ink:#1d2433;--muted:#687389;--blue:#3c52d9;--line:#e1e5ee;--paper:#f7f8fc;--card:#fff;--radius:16px;font-family:system-ui,-apple-system,"Segoe UI","Microsoft YaHei",sans-serif;color:var(--ink);background:var(--paper);line-height:1.65}*{box-sizing:border-box}body{margin:0}.app{max-width:1120px;margin:0 auto;padding:0 24px}.topbar{height:78px;display:flex;align-items:center;gap:28px;border-bottom:1px solid var(--line)}.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font-weight:750}.brand small{display:block;color:var(--muted);font-size:11px;font-weight:400}.brandmark{display:grid;place-items:center;width:36px;height:36px;border-radius:10px;background:transparent;color:#fff}.nav{display:flex;gap:8px;margin-left:auto}.nav-btn{border:0;background:transparent;color:var(--muted);padding:8px 10px;border-radius:9px;cursor:pointer}.nav-btn.active{background:#edf0ff;color:var(--blue);font-weight:700}.nav-btn span{font-size:11px;background:#edf0ff;padding:2px 6px;border-radius:9px}.connection{font-size:12px;color:var(--muted)}.view{display:none;padding:40px 0 70px}.view.active{display:block}.hero{display:flex;justify-content:space-between;gap:25px;align-items:end;margin-bottom:28px}.hero.compact{display:block}.eyebrow{color:var(--blue);font-size:12px;letter-spacing:.12em;font-weight:750;text-transform:uppercase}.hero h1{font-size:clamp(29px,4vw,48px);line-height:1.28;margin:8px 0}.lead{color:var(--muted);max-width:650px}.button{border:1px solid transparent;border-radius:10px;padding:11px 17px;min-height:44px;cursor:pointer;font:inherit;font-weight:650}.primary{background:var(--blue);color:#fff}.secondary{background:#fff;border-color:var(--line);color:var(--ink)}.board-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.board-card,.shelf-card,.room-head,.chat-messages,.chat-form,.ai-note{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px}.board-card{cursor:pointer;text-align:left}.board-card:hover{border-color:var(--blue)}.board-card.selected{border:2px solid var(--blue);box-shadow:0 0 0 3px rgba(60,82,217,.12)}.board-card .meta{display:flex;justify-content:space-between;color:var(--muted);font-size:12px}.board-card h3{margin:12px 0 7px}.board-card p{margin:0;color:var(--muted);font-size:14px}.room-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}.room-head h2{margin:5px 0}.chat-messages{min-height:360px;max-height:52vh;overflow:auto;display:flex;flex-direction:column;gap:10px}.message{max-width:78%;padding:10px 13px;border-radius:13px;background:rgba(255,255,255,.72);color:#667085;white-space:pre-wrap;overflow-wrap:anywhere}.message:not(.mine):not(.ai){background:rgba(255,255,255,.58);color:#6f7787}.message.mine{align-self:flex-end;background:#e9edff}.message.ai{align-self:flex-start;background:rgba(255,255,255,.68);color:#6a7282;border:1px solid #edf0f5}.message .label{font-size:11px;color:var(--muted);display:block;margin-bottom:3px}.chat-form{display:flex;gap:10px;margin-top:14px;padding:12px}.chat-form textarea{flex:1;resize:vertical}.ai-note{margin:14px 0;background:#fffaf0;font-size:13px;color:#795f20}.chat-hint{font-size:12px;color:var(--muted)}textarea,input,select{font:inherit;border:1px solid var(--line);border-radius:9px;padding:10px 12px;width:100%;background:#fff;color:var(--ink)}label{display:block;font-size:14px;margin:13px 0}label input,label select,label textarea{display:block;margin-top:6px}.shelf-toolbar{display:flex;align-items:flex-end;gap:10px;margin-bottom:18px;max-width:520px}.shelf-toolbar label{flex:1;margin:0}.shelf-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.shelf-card h3{margin:7px 0}.shelf-card .tag{display:inline-block;background:#edf0ff;color:var(--blue);border-radius:99px;padding:3px 8px;font-size:12px}.shelf-card p{white-space:pre-wrap;color:var(--muted)}.card-actions{display:flex;gap:8px}.text-button{border:0;background:transparent;color:var(--blue);cursor:pointer;text-decoration:underline;padding:7px 0}.notice{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#202743;color:#fff;padding:12px 18px;border-radius:10px;z-index:5}.dialog-head{display:flex;justify-content:space-between;align-items:center}.dialog-actions{display:flex;justify-content:flex-end;margin-top:18px}.key-lines{display:grid;gap:8px;max-height:220px;overflow:auto;margin:14px 0}.key-line{display:flex;gap:8px;padding:8px;background:#f4f6fb;border-radius:8px}.key-line input{width:auto}.muted{color:var(--muted)}[hidden]{display:none!important}@media(max-width:760px){.app{padding:0 14px}.topbar{height:auto;padding:14px 0;flex-wrap:wrap;gap:10px}.nav{order:3;width:100%;margin:0;overflow:auto}.connection{margin-left:auto}.view{padding-top:26px}.hero{display:block}.hero .button{margin-top:14px}.board-list,.shelf-list{grid-template-columns:1fr}.room-head{align-items:flex-start;gap:10px}.room-head .button{padding:8px}.message{max-width:90%}.chat-form{position:sticky;bottom:8px}.chat-form .button{padding:9px 12px}}
+/* v2 交流区 */
+.source{display:block;font-size:11px;color:var(--muted);margin-top:4px}.card-actions{display:flex;align-items:center;gap:9px;flex-wrap:wrap}.shelf-card{overflow-wrap:anywhere}.key-line input{flex:0 0 auto}.chat-form textarea{min-width:0}@media(max-width:760px){.topbar .brand small{display:none}.connection{font-size:11px}.room-head{flex-direction:column}.room-head .button{width:100%}.chat-form{align-items:flex-end}.chat-form textarea{min-height:48px}}
+.category-add{display:flex;gap:8px;align-items:center}.category-add input{flex:1}.category-add .button{flex:0 0 auto}.category-list{display:grid;gap:8px;margin-top:14px;max-height:260px;overflow:auto}.category-row{display:flex;align-items:center;justify-content:space-between;padding:9px 11px;background:#f4f6fb;border-radius:8px}.category-row .text-button{padding:0}.shelf-title-row{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:22px}.shelf-title-row h1{margin:0}.category-manager-button{min-height:34px;padding:6px 10px;font-size:13px;border-radius:8px;white-space:nowrap}
+.card-category-label{position:relative}.card-category-label .text-button{position:absolute;right:0;top:-5px;font-size:12px}
+.shelf-heading{display:flex;align-items:center;gap:12px;min-width:0}.shelf-heading h1{line-height:1.4;margin:0}.achievement-toggle{display:inline-flex;align-items:center;gap:4px;border:1px solid var(--line);border-radius:99px;background:transparent;color:var(--muted);font:inherit;font-size:12px;padding:5px 10px;min-height:34px;white-space:nowrap;cursor:pointer}.achievement-toggle:hover,.achievement-toggle[aria-expanded="true"]{background:#edf0ff;border-color:#cdd5f5;color:var(--blue)}.achievement-toggle:focus-visible{outline:2px solid var(--blue);outline-offset:3px}.achievements-panel{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px;margin:0 0 22px}.achievement-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.achievement-badge{display:flex;align-items:center;gap:12px;border:1px solid var(--line);border-radius:13px;padding:12px;background:#fafbfe;min-width:0}.badge-art{width:96px;height:104px;flex:0 0 96px;border-radius:16px;overflow:visible;background:transparent;display:grid;place-items:center}.badge-art img{width:100%;height:100%;object-fit:contain}.badge-copy{min-width:0;flex:1}.badge-copy h3{font-size:16px;margin:0 0 2px}.badge-copy h3 span{font-size:11px;color:var(--muted);font-weight:500;margin-left:4px}.badge-copy p{margin:0 0 6px;color:var(--muted);font-size:12px;overflow-wrap:anywhere}.badge-copy small{font-size:11px;color:var(--muted)}.badge-progress{display:block;width:100%;height:4px;border:0;border-radius:4px;overflow:hidden;margin:6px 0;appearance:none;background:#e8ebf3}.badge-progress::-webkit-progress-bar{background:#e8ebf3}.badge-progress::-webkit-progress-value{background:#8294ce}.badge-progress::-moz-progress-bar{background:#8294ce}.level-2 .badge-progress::-webkit-progress-value{background:#73a6a1}.level-3 .badge-progress::-webkit-progress-value{background:#d0ac5c}.achievement-rule{font-size:11px;color:var(--muted);margin:12px 0 0}
+@media(max-width:760px){.achievement-list{grid-template-columns:1fr}.achievements-panel{padding:12px}.achievement-badge{padding:10px}.shelf-title-row{gap:8px;flex-wrap:wrap}.shelf-heading{gap:8px}.achievement-toggle{min-height:40px}}
+@media(prefers-reduced-motion:reduce){.achievement-badge,.badge-progress i{animation:none;transition:none}}
+.achievement-badge{cursor:pointer}.achievement-badge:focus-visible{outline:2px solid var(--blue);outline-offset:3px}.achievement-preview-dialog{width:min(420px,calc(100vw - 28px));border:0;border-radius:18px;padding:20px;background:#fff;color:var(--ink);box-shadow:0 20px 70px #17204442}.achievement-preview-dialog::backdrop{background:#17204466}.achievement-preview-dialog .dialog-head{margin-bottom:8px}.achievement-preview-body{text-align:center}.achievement-preview-art{width:220px;height:235px;margin:4px auto 10px;border:0;padding:0;background:transparent;display:grid;place-items:center;cursor:zoom-in}.achievement-preview-art img{width:100%;height:100%;object-fit:contain}.achievement-preview-body h3{margin:8px 0 2px}.achievement-preview-body p{margin:0;color:var(--muted)}.achievement-stage-row{display:flex;justify-content:center;gap:6px;margin-top:14px}.stage-chip{font:inherit;font-size:11px;padding:4px 8px;border:0;border-radius:99px;background:#f0f2f8;color:var(--muted);cursor:pointer}.stage-chip:hover,.stage-chip:focus-visible{background:#e6eaff;color:var(--blue);outline:2px solid #cdd5f5;outline-offset:2px}.stage-chip.active{background:#edf0ff;color:var(--blue);font-weight:700}.achievement-toast{position:fixed;z-index:20;left:50%;top:22px;transform:translateX(-50%);width:min(360px,calc(100vw - 28px));padding:14px 42px 14px 18px;border:1px solid #d7defd;border-radius:14px;background:#fff;box-shadow:0 12px 32px #1720442b;animation:achievementToastIn .35s ease-out}.achievement-toast strong,.achievement-toast span{display:block}.achievement-toast span{color:var(--muted);font-size:13px;margin-top:2px}.achievement-toast-close{position:absolute;right:10px;top:8px;border:0;background:transparent;color:var(--muted);font-size:22px;line-height:1;cursor:pointer}.achievement-toast[hidden]{display:none}@keyframes achievementToastIn{from{opacity:0;transform:translate(-50%,-12px)}to{opacity:1;transform:translate(-50%,0)}}
+
+.hero-actions{display:flex;gap:10px;flex-wrap:wrap}.board-empty{grid-column:1/-1;padding:24px;background:var(--card);border:1px dashed var(--line);border-radius:var(--radius);color:var(--muted)}.board-empty p{margin:4px 0}
+@media(max-width:760px){.hero-actions{width:100%}.hero-actions .button{flex:1}}
+
+.example-card{border-style:dashed;background:#fbfcff}.example-card .tag{background:#e9eefc}
+
+/* 成就阶段预览：稳定按钮节点，适配触屏与窄屏弹窗。 */
+.achievement-preview-dialog{max-height:calc(100dvh - 28px);overflow-y:auto}
+.achievement-preview-art{width:min(220px,100%);height:auto;aspect-ratio:1}
+.achievement-preview-art img{min-width:0;min-height:0}
+.achievement-preview-dialog.is-enlarged{width:min(600px,calc(100vw - 28px))}
+.achievement-preview-dialog.is-enlarged .achievement-preview-art{width:min(420px,100%,55dvh);cursor:zoom-out}
+.achievement-preview-art:focus-visible,.achievement-image-button:focus-visible{outline:2px solid var(--blue);outline-offset:4px}
+.achievement-image-button{display:block;border:0;padding:0;background:transparent;cursor:zoom-in;margin:10px auto 14px;max-width:100%}
+.achievement-unlock-dialog .achievement-image-button img{margin:0}
+.achievement-stage-row{gap:8px}
+.stage-chip{min-width:64px;min-height:44px;padding:8px 12px;font-size:13px;touch-action:manipulation}
+.stage-chip:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.achievement-preview-dialog .text-button{min-width:44px;min-height:44px}
+
+/* 疑问社区：将一对一交流中未解决的问题展示为公开话题。 */
+.community-hero{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:24px}
+.community-hero h1{margin:8px 0;font-size:clamp(28px,4vw,42px);line-height:1.3}
+.community-hero .lead{margin:0;max-width:620px}
+.community-actions{display:flex;gap:10px;flex-wrap:wrap}
+.community-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.topic-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.topic-card:hover{border-color:#c4ccf2}
+.topic-card .topic-meta{display:flex;align-items:center;justify-content:space-between;gap:10px;color:var(--muted);font-size:12px}
+.status-stack{display:flex;flex-direction:column;align-items:flex-end;gap:4px}.delete-icon{border:0;background:transparent;padding:0;line-height:1;font-size:18px;color:#7b8492;cursor:pointer}.delete-icon:hover,.delete-icon:focus-visible{color:#c24b52}
+/* 取消选择后恢复中性边框，选中前后不改变卡片尺寸。 */
+.board-card:hover{border-color:#bcc3d1}
+.board-card.selected{border:1px solid var(--blue);box-shadow:inset 0 0 0 1px var(--blue),0 0 0 3px rgba(60,82,217,.12)}
+.board-card:focus-visible{outline:2px solid #8b95a8;outline-offset:4px}
+.board-card .delete-icon{display:grid;place-items:center;width:44px;height:44px;flex:0 0 44px;padding:0;border:1px solid var(--line);border-radius:8px;background:#f7f8fc;color:#687389;touch-action:manipulation}
+.board-card .delete-icon:hover{border-color:#e7b9bd;background:#fff4f4;color:#b43b46}
+.board-card .delete-icon:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+
+.topic-card .topic-category{display:inline-flex;align-items:center;background:#edf0ff;color:var(--blue);border-radius:99px;padding:3px 9px;white-space:nowrap}
+.topic-card h3{margin:0;font-size:18px;line-height:1.45;overflow-wrap:anywhere}
+.topic-card p{margin:0;color:var(--muted);font-size:14px;white-space:pre-wrap;overflow-wrap:anywhere}
+.topic-card .topic-status{display:inline-flex;align-self:flex-start;border-radius:99px;padding:3px 9px;background:#f3f5f9;color:var(--muted);font-size:12px}
+.topic-card .topic-status.open{background:#edf0ff;color:var(--blue)}
+.topic-card .topic-status.solved{background:#edf7f2;color:#31745f}
+.topic-card .topic-actions{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-top:auto;padding-top:2px}
+.topic-card .topic-actions .button{min-height:38px;padding:8px 12px;font-size:13px}
+.topic-empty{grid-column:1/-1;padding:28px 22px;border:1px dashed var(--line);border-radius:var(--radius);background:var(--card);color:var(--muted);text-align:center}
+.topic-empty p{margin:3px 0}
+.community-filter{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.community-filter label{margin:0;min-width:130px;font-size:13px}
+.community-filter select{width:auto;min-width:130px}
+.topic-dialog{width:min(560px,calc(100vw - 28px));border:0;border-radius:16px;padding:22px;background:var(--card);color:var(--ink);box-shadow:0 20px 70px #17204442}
+.topic-dialog::backdrop{background:#17204466}
+.topic-dialog .dialog-head{margin-bottom:8px}
+.topic-dialog .dialog-actions{gap:9px}
+@media(max-width:760px){
+  .community-hero{display:block;margin-bottom:20px}
+  .community-hero .button{margin-top:14px}
+  .community-actions{width:100%}
+  .community-actions .button{flex:1}
+  .community-list{grid-template-columns:1fr}
+  .topic-card{padding:16px}
+  .community-filter{align-items:stretch;flex-direction:column;gap:6px}
+  .community-filter label,.community-filter select{width:100%}
+  .topic-dialog{padding:16px}
+}
+
+.topic-list{display:grid;gap:14px}.topic-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px}.topic-card h3{margin:8px 0}.room-actions{display:flex;gap:8px;flex-wrap:wrap}
+
+.brandmark img{width:100%;height:100%;object-fit:contain;border-radius:10px}.message{background:#f0f2f8;color:var(--ink)}.message:not(.mine):not(.ai){background:#f4f5f8;color:var(--ink)}.message.mine{background:#e9edff;color:var(--ink)}.message.ai{color:var(--ink)}.room-actions{display:flex;gap:8px;flex-wrap:wrap}
+
+.message.system{background:rgba(255,255,255,.58);color:#7b8492}.message.mine{background:#e9edff;color:var(--ink)}
+
+/* 系统提示独立于双方消息气泡，低干扰但保持清晰。 */
+#chat-messages .message.system{background:transparent;border:0;box-shadow:none;color:#747c89;opacity:1}
+#chat-messages .message.system .label{color:inherit;opacity:1}
+.topic-card h3,.message{overflow-wrap:anywhere}
+.room-actions button:disabled{cursor:default;opacity:.55}
+.chat-messages .message{flex-shrink:0}
+@media(max-width:760px){.chat-form{position:static}.chat-messages{min-height:240px;max-height:48dvh}.room-actions{width:100%}.room-actions .button{flex:1;width:auto}}
+.achievement-unlock-dialog{width:min(380px,calc(100vw - 28px));border:0;border-radius:22px;padding:28px 24px;text-align:center;color:var(--ink);background:#fff;box-shadow:0 20px 70px #17204442}.achievement-unlock-dialog::backdrop{background:#17204466}.achievement-unlock-dialog img{display:block;width:min(260px,100%);height:auto;aspect-ratio:1;margin:10px auto 14px;object-fit:contain}.achievement-unlock-kicker{margin:0;color:var(--blue);font-size:13px;font-weight:750;letter-spacing:.12em}.achievement-unlock-dialog h2{margin:4px 0 0;font-size:24px}.achievement-unlock-dialog p{margin:6px 0}.achievement-unlock-close{position:absolute;right:12px;top:10px;width:44px;height:44px;border:0;background:transparent;color:var(--muted);font-size:24px;cursor:pointer}.achievement-unlock-dialog .muted{font-size:12px}.achievement-unlock-dialog:focus-visible{outline:2px solid var(--blue);outline-offset:4px}
+.achievement-unlock-dialog{max-height:calc(100dvh - 28px);overflow-y:auto}
+.achievement-unlock-dialog[open]{animation:achievementCardIn .35s ease-out}
+@keyframes achievementCardIn{from{opacity:0;transform:translateY(10px) scale(.98)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.achievement-unlock-dialog[open]{animation:none}}
+
+/* 刘看山标志动态：仅在标志框内循环，每 4 秒切换 */
+.brandmark{position:relative;overflow:hidden;isolation:isolate}.brandmark img{position:absolute;inset:0;opacity:0;animation:brandmark-cycle 15s steps(1,end) infinite}.brandmark img:first-child{position:relative;opacity:1}.brandmark img:nth-child(1){animation-delay:0s}.brandmark img:nth-child(2){animation-delay:-12s}.brandmark img:nth-child(3){animation-delay:-9s}.brandmark img:nth-child(4){animation-delay:-6s}.brandmark img:nth-child(5){animation-delay:-3s}@keyframes brandmark-cycle{0%,19.99%{opacity:1}20%,100%{opacity:0}}@media (prefers-reduced-motion:reduce){.brandmark img{animation:none;opacity:0}.brandmark img:first-child{opacity:1}}
+
+

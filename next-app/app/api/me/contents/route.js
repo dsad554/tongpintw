@@ -1,0 +1,3 @@
+import { NextResponse } from 'next/server';
+import { zhihuApi } from '../../../../lib/zhihu';
+export async function GET(request) { const token = request.cookies.get('zhihu_oauth_token')?.value; if (!token) return NextResponse.json({ error: '未登录' }, { status: 401 }); const q = new URL(request.url).searchParams; try { const data = await zhihuApi('/user/contents', { Offset: q.get('offset') || 0, Limit: q.get('limit') || 20, ContentType: 'all', SortField: 'ts', SortOrder: 'desc' }, token); return NextResponse.json({ items: data?.Items || [], nextOffset: data?.Paging?.NextOffset, isEnd: data?.Paging?.IsEnd }); } catch (error) { return NextResponse.json({ error: error.message }, { status: 502 }); } }

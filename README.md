@@ -38,6 +38,8 @@
 
 ## 验证与打包
 
+阿里云 Ubuntu 22.04 LTS 部署请参阅：[文档/阿里云服务器部署指南.md](文档/阿里云服务器部署指南.md)。
+
 需要已安装的 Node.js 22+、PowerShell 7.4+，无 npm 依赖。
 
 ```powershell

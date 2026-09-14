@@ -1,0 +1,6 @@
+{
+  "name": "zhihu-hot-oauth-next",
+  "private": true,
+  "scripts": {"dev": "node start-local.mjs dev", "build": "next build", "start": "node start-local.mjs start"},
+  "dependencies": {"next": "16.3.5", "react": "19.2.0", "react-dom": "19.2.0"}
+}
