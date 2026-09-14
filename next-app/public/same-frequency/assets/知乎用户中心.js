@@ -1,7 +1,7 @@
 (() => {
   const root = document.getElementById('zhihu-account');
   if (!root) return;
-  const loginHref = '/api/auth/zhihu/start';
+  const loginHref = (location.port === '51283' ? 'http://127.0.0.1:3000' : '') + '/api/auth/zhihu/start';
   let profile;
 
   function esc(value) {
