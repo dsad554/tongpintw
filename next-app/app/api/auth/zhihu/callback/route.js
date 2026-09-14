@@ -1,15 +1,12 @@
 import { NextResponse } from 'next/server';
 import { exchangeCode } from '../../../../../lib/zhihu';
-
-function appUrl(request) {
-  return process.env.NEXT_PUBLIC_APP_URL || new URL(request.url).origin;
-}
+import { appOrigin } from '../../../../../lib/app-origin';
 
 export async function GET(request) {
   const url = new URL(request.url);
   const oauthError = url.searchParams.get('error');
   if (oauthError) {
-    return NextResponse.redirect(new URL(`/same-frequency/index.html?error=oauth_${encodeURIComponent(oauthError)}`, appUrl(request)));
+    return NextResponse.redirect(new URL(`/same-frequency/index.html?error=oauth_${encodeURIComponent(oauthError)}`, appOrigin(request)));
   }
 
   const code = url.searchParams.get('authorization_code') || url.searchParams.get('code');
@@ -21,7 +18,7 @@ export async function GET(request) {
 
   try {
     const token = await exchangeCode(code);
-    const response = NextResponse.redirect(new URL('/same-frequency/index.html', appUrl(request)));
+    const response = NextResponse.redirect(new URL('/same-frequency/index.html', appOrigin(request)));
     response.cookies.set('zhihu_oauth_token', token.access_token, {
       httpOnly: true,
       sameSite: 'lax',
